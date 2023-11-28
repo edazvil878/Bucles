@@ -1,0 +1,40 @@
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+.rojo {
+    background-color: red;
+    color: red;
+}
+
+.amarillo {
+    background-color: yellow;
+    color: yellow;
+}
+
+.azul {
+    background-color: blue;
+    color: blue;
+}
+
+.verde {
+    background-color: green;
+    color: green;
+}
+
+.rosa {
+    background-color: pink;
+    color: pink;
+}
+
+.marron {
+    background-color: brown;
+    color: brown;
+}
+
+.naranja {
+    background-color: orange;
+    color: orange;
+}
