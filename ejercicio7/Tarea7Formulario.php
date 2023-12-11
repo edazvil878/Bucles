@@ -26,6 +26,8 @@
         <br><br>
         <label for="hora">Ingresa la hora:</label>
         <input type="time" name="hora" required>
+
+        <input type="submit" value="Enviar">
     </form>
 </body>
 

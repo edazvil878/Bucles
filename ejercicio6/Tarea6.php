@@ -39,7 +39,7 @@
 
     include('funciones-html.php');
 
-    crearTabla($color, $columna, $fila);
+    crearTabla($colorFondo, $colorLetra, $columna, $fila);
 
     if ($sexo) {
         crearSexo();

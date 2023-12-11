@@ -2,7 +2,7 @@
 function crearTabla($colorFondo, $colorLetra, $columnas, $filas)
 {
     echo "<table  class=" . $colorFondo . " class=" . $colorLetra . ">";
-    for ($i = 0; $i <= $filas; $i++) {
+    for ($i = 0; $i < $filas; $i++) {
         echo "<tr>";
         for ($j = 0; $j < $columnas; $j++) {
             echo "<td>hola</td>";
