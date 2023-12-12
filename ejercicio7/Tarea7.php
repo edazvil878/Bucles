@@ -23,6 +23,10 @@ function principal($nombre, $fecha, $hora)
     $vacacionesSemanaSanta = date_diff($fechaActual, $fechaSemanaSanta);
     $esFinSemana = "no";
 
+    $horaUsuario = new DateTime($hora);
+    $horaMedianoche = new DateTime("00:00:00");
+    $diferenciaHora = $horaUsuario->diff($horaMedianoche)->format('%H horas');
+
     //Comprobamos en que estación estamos
     if (date("n") == 3 || date("n") == 4 || date("n") == 5) {
         $estacion = "primavera";
@@ -36,19 +40,19 @@ function principal($nombre, $fecha, $hora)
 
     $fechaSeparada = explode("-", $fecha);
     $ano = $fechaSeparada[0];
+    $mes = $fechaSeparada[1];
+    $dia = $fechaSeparada[2];
 
-    echo $fecha;
-    print(localtime($fecha, true)["tm_wday"]);
+    $finSemana = localtime(mktime(0,0,0,$mes, $dia, $ano), true)["tm_wday"];
 
     //Comprobamos si el cumpleaños cae en fin de semana
-    if ($fecha) {
-        echo "1";
-    } else {
-        echo "2";
+    if($finSemana == 6 || $finSemana == 7){
+        $esFinSemana = "si";
     }
+   
 
     print "Bienvenido " . $nombre . " estas en " . $estacion . " quedan " . $vacacionesNavidad->format('%R%a') . " días para las vacaciones de navidad "
-        . $vacacionesSemanaSanta->format('%R%a') . " días para las vacaciones de Semana Santa ";
+        . $vacacionesSemanaSanta->format('%R%a') . " días ". $diferenciaHora. " para las vacaciones de Semana Santa. Tu cumpleaños ". $esFinSemana. " es en fin de semana y es el día ". date("l j F Y", strtotime($fecha));
 }
 
 principal($nombre, $fecha, $hora);
