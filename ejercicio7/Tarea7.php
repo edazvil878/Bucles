@@ -21,7 +21,9 @@ function principal($nombre, $fecha, $hora)
     $fechaActual = new DateTime("now");
     $vacacionesNavidad = date_diff($fechaActual, $fechaNavidad);
     $vacacionesSemanaSanta = date_diff($fechaActual, $fechaSemanaSanta);
+    $esFinSemana = "no";
 
+    //Comprobamos en que estación estamos
     if (date("n") == 3 || date("n") == 4 || date("n") == 5) {
         $estacion = "primavera";
     } elseif (date("n") == 6 || date("n") == 7 || date("n") == 8) {
@@ -30,6 +32,19 @@ function principal($nombre, $fecha, $hora)
         $estacion = "otoño";
     } else {
         $estacion = "invierno";
+    }
+
+    $fechaSeparada = explode("-", $fecha);
+    $ano = $fechaSeparada[0];
+
+    echo $fecha;
+    print(localtime($fecha, true)["tm_wday"]);
+
+    //Comprobamos si el cumpleaños cae en fin de semana
+    if ($fecha) {
+        echo "1";
+    } else {
+        echo "2";
     }
 
     print "Bienvenido " . $nombre . " estas en " . $estacion . " quedan " . $vacacionesNavidad->format('%R%a') . " días para las vacaciones de navidad "
